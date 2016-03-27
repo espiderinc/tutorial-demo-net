@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<buildInfo>
+  <projectName>tutorial</projectName>
+  <companyName>Spider</companyName>
+  <versionMajor>0</versionMajor>
+  <versionMinor>0</versionMinor>
+  <versionPatch>0</versionPatch>
+  <buildNumber>0</buildNumber>
+  <revision>1</revision>
+  <version>0.0.0.1</version>
+  <repositoryPath>https://github.com/chucknorris/roundhouse.git</repositoryPath>
+  <microsoftNetFramework>net-4.0</microsoftNetFramework>
+  <msbuildConfiguration>Release</msbuildConfiguration>
+  <msbuildPlatform>Any CPU</msbuildPlatform>
+</buildInfo>
