@@ -19,9 +19,9 @@ namespace tutorial.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return db.Products.Find(id);
         }
 
         // POST api/<controller>
