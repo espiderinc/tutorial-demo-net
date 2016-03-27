@@ -224,6 +224,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="db\up\001northwind.sql" />
+    <Content Include="db\up\002CreateTableCity.sql" />
     <Content Include="db\_BuildInfo.xml" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
