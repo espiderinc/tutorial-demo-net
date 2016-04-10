@@ -35,7 +35,7 @@ namespace tutorial.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(product);
-            Assert.AreEqual("Chef Anton's Gumbo Mix", product.ProductName);
+            Assert.AreEqual("Chef Anton's Gumbo Mix11", product.ProductName);
         }
     }
 }
