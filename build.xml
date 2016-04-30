@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Tutorial Demo" default="build" basedir=".">
+  <description>The Demo project for Tutorial</description>
+  <property name="debug" value="true" overwrite="false" />
+
+  <property name="output.dir" value="output" />
+
+  <target name="init" depends="clean">
+    <mkdir dir="${output.dir}" />
+  </target>
+  
+  <target name="clean" description="remove all generated files">
+    <delete dir="${output.dir}" />
+  </target>
+  <target name="build" description="compiles the source code" depends="init">
+    <solution solutionfile="tutorial.sln" configuration="release" outputdir="${output.dir}" />
+  </target>
+</project>
