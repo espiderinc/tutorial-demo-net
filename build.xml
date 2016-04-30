@@ -3,7 +3,7 @@
   <description>The Demo project for Tutorial</description>
   <property name="debug" value="true" overwrite="false" />
 
-  <property name="output.dir" value="output" />
+  <property name="output.dir" value="${basedir}\output" />
 
   <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
 
@@ -57,7 +57,7 @@
       <arg line="cover" />
       <arg line="/targetexecutable=${mstest.exe}" />
       <arg line="/output=${output.dir}\temp" />
-      <arg line="/targetarguments=/testcontainer:tutorial\bin\tutorial.dll" />
+      <arg line="/targetarguments=/testcontainer:${basedir}\tutorial\bin\tutorial.dll" />
       <arg line="/targetworkingdir=." />
       <arg line="/filters=+:module=tutorial;type=*;function=*;" />
     </exec>
