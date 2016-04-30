@@ -9,7 +9,7 @@
 
   <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
 
-  <property name="tutorial.tests.dll" value="tutorial.Tests\bin\Release\tutorial.Tests.dll" />
+  <property name="tutorial.Tests.dll" value="tutorial.Tests\bin\Release\tutorial.Tests.dll" />
   
   <property name="tutorial.dll" value="tutorial\bin\tutorial.dll" />
   
@@ -65,7 +65,7 @@
     </exec>
 
     <!-- Run the tests -->
-    <call target="test" cascade="false" />
+    <call target="test" cascade="false" failonerror="false"/>
 
     <!-- Shutdown monitor and save coverage file -->
     <exec program="${performance.tools}\VsPerfCmd.exe">
