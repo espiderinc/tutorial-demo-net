@@ -55,7 +55,7 @@
     <!-- Run tests and generated dotcover snapshots -->
     <exec program="${dotcover.exe}" verbose="true" failonerror="true">
       <arg line="cover" />
-      <arg line="/targetexecutable=${mstest.exe}" />
+      <arg line="/targetexecutable='${mstest.exe}'" />
       <arg line="/output=${output.dir}\temp" />
       <arg line="/targetarguments=/testcontainer:.\tutorial\bin\tutorial.dll" />
       <arg line="/targetworkingdir=." />
