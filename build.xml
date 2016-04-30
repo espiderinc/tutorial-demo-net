@@ -5,6 +5,14 @@
 
   <property name="output.dir" value="output" />
 
+  <property name="performance.tools" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools" />
+
+  <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
+  
+  <property name="msbuild.exe" value="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" />
+
+  <property name="visualcoverage.exe" value="C:\Program Files (x86)\Jenkins\jobs\vistual coverage\workspace\build\VisualCoverage\bin\VisualCoverage.exe" />
+
   <target name="init" depends="clean">
     <mkdir dir="${output.dir}" />
   </target>
@@ -12,7 +20,57 @@
   <target name="clean" description="remove all generated files">
     <delete dir="${output.dir}" />
   </target>
-  <target name="build" description="compiles the source code" depends="init">
-    <solution solutionfile="tutorial.sln" configuration="release" outputdir="${output.dir}" />
+
+  <target name="nuget" >
+    <exec program="${nuget.exe}" verbose="true" failonerror="true">
+      <arg line="restore" />
+      <arg line="." />
+    </exec>
+  </target>
+  
+  <target name="build" description="compiles the source code" depends="init,nuget">
+    <exec program="${msbuild.exe}" verbose="true" failonerror="true">
+      <arg line="/m" />
+      <arg line="/t:build" />
+      <arg line="/p:Configuration=Release" />
+      <arg line="/p:VisualStudioVersion=14.0" />
+      <arg line="tutorial.sln" />
+    </exec>
+  </target>
+
+  <target name="test" depends="build" >
+    <exec program="${mstest.exe}" verbose="true" failonerror="true">
+      <arg line="/testcontainer:${output.dir}\tutorial.Tests.dll" />
+      <arg line="/resultsfile:${output.dir}\test_result.trx" />
+    </exec>
+  </target>
+
+  <target name="coverage" description="Run the tests and generate coverage report" depends="build">
+    <!-- Instrument assembly -->
+    <exec program="${performance.tools}\VsInstr.exe">
+      <arg line="/Coverage" />
+      <arg line="${output.dir}\tutorial.dll" />
+    </exec>
+
+    <!-- Start monitor in coverage mode -->
+    <exec program="${performance.tools}\VsPerfCmd.exe">
+      <arg line="/Start:Coverage" />
+      <arg line="/Output:${output.dir}\Coverage\file.coverage" />
+    </exec>
+
+    <!-- Run the tests -->
+    <call target="test" cascade="false" />
+
+    <!-- Shutdown monitor and save coverage file -->
+    <exec program="${performance.tools}\VsPerfCmd.exe">
+      <arg line="/Shutdown" />
+    </exec>
+
+    <!-- Transforms coverage report (from VsPerfCmd) to clover (bamboo). -->
+    <exec program="${visualcoverage.exe}">
+      <arg line="--input ${output.dir}\Coverage\file.coverage" />
+      <arg line="--clover ${output.dir}\Coverage\clover.xml" />
+      <arg line="--html ${output.dir}\Coverage\report.html" />
+    </exec>
   </target>
 </project>
