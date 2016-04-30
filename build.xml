@@ -8,6 +8,10 @@
   <property name="performance.tools" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools" />
 
   <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
+
+  <property name="tutorial.tests.dll" value="tutorial.Tests\bin\Release\tutorial.Tests.dll" />
+  
+  <property name="tutorial.dll" value="tutorial\bin\tutorial.dll" />
   
   <property name="msbuild.exe" value="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" />
   
@@ -42,7 +46,7 @@
 
   <target name="test" depends="build" >
     <exec program="${mstest.exe}" verbose="true" failonerror="true">
-      <arg line="/testcontainer:${output.dir}\tutorial.Tests.dll" />
+      <arg line="/testcontainer:${tutorial.Tests.dll}" />
       <arg line="/resultsfile:${output.dir}\test_result.trx" />
     </exec>
   </target>
@@ -51,7 +55,7 @@
     <!-- Instrument assembly -->
     <exec program="${performance.tools}\VsInstr.exe">
       <arg line="/Coverage" />
-      <arg line="${output.dir}\tutorial.dll" />
+      <arg line="${tutorial.dll}" />
     </exec>
 
     <!-- Start monitor in coverage mode -->
