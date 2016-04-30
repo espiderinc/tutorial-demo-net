@@ -7,17 +7,11 @@
 
   <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
 
-  <property name="tutorial.Tests.dll" value="tutorial.Tests\bin\Release\tutorial.Tests.dll" />
-  
-  <property name="tutorial.dll" value="tutorial.Tests\bin\Release\tutorial.dll" />
-
   <property name="dotcover.exe" value="D:\TeamCity\buildAgent\tools\dotCover\dotcover.exe" />
   
   <property name="msbuild.exe" value="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" />
   
   <property name="nuget.exe" value="D:\tools\nuget.exe" />
-
-  <property name="visualcoverage.exe" value="C:\Program Files (x86)\Jenkins\jobs\vistual coverage\workspace\build\VisualCoverage\bin\VisualCoverage.exe" />
 
   <target name="init" depends="clean">
     <mkdir dir="${output.dir}" />
@@ -44,30 +38,11 @@
     </exec>
   </target>
 
-  <target name="test" depends="build" >
-    <exec program="${mstest.exe}" verbose="true" failonerror="true">
-      <arg line="/testcontainer:${tutorial.Tests.dll}" />
-      <arg line="/resultsfile:${output.dir}\test_result.trx" />
-    </exec>
-  </target>
-
   <target name="coverage" description="Use JebBrain's DotCover to generate coverage report" depends="build">
     <!-- Run tests and generated dotcover snapshots -->
     <exec program="${dotcover.exe}" verbose="true" failonerror="true">
-      <arg line="cover" />
-      <arg line="/targetexecutable='${mstest.exe}'" />
-      <arg line="/output=${output.dir}\temp" />
-      <arg line="/targetarguments=/testcontainer:.\tutorial\bin\tutorial.dll" />
-      <arg line="/targetworkingdir=." />
-      <arg line="/filters=+:module=tutorial;type=*;function=*;" />
-    </exec>
-
-    <!-- Generated HTML reports -->
-    <exec program="${dotcover.exe}" verbose="true" failonerror="true">
-      <arg line="report" />
-      <arg line="/source=${output.dir}\temp" />
-      <arg line="/output=${output.dir}\result.html" />
-      <arg line="/reporttype=HTML" />
+      <arg line="analyse" />
+      <arg line="dotcover.xml" />
     </exec>
   </target>
 </project>
