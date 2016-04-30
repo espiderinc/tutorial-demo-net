@@ -61,7 +61,7 @@
     <!-- Start monitor in coverage mode -->
     <exec program="${performance.tools}\VsPerfCmd.exe">
       <arg line="/Start:Coverage" />
-      <arg line="/Output:${output.dir}\Coverage\file.coverage" />
+      <arg line="/Output:${output.dir}\file.coverage" />
     </exec>
 
     <!-- Run the tests -->
@@ -74,9 +74,9 @@
 
     <!-- Transforms coverage report (from VsPerfCmd) to clover (bamboo). -->
     <exec program="${visualcoverage.exe}">
-      <arg line="--input ${output.dir}\Coverage\file.coverage" />
-      <arg line="--clover ${output.dir}\Coverage\clover.xml" />
-      <arg line="--html ${output.dir}\Coverage\report.html" />
+      <arg line="--input ${output.dir}\file.coverage" />
+      <arg line="--clover ${output.dir}\clover.xml" />
+      <arg line="--html ${output.dir}\report.html" />
     </exec>
   </target>
 </project>
