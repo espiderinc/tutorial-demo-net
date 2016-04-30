@@ -10,6 +10,8 @@
   <property name="mstest.exe" value="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" />
   
   <property name="msbuild.exe" value="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" />
+  
+  <property name="nuget.exe" value="D:\tools\nuget.exe" />
 
   <property name="visualcoverage.exe" value="C:\Program Files (x86)\Jenkins\jobs\vistual coverage\workspace\build\VisualCoverage\bin\VisualCoverage.exe" />
 
