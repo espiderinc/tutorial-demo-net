@@ -53,7 +53,7 @@
 
   <target name="coverage" description="Use JebBrain's DotCover to generate coverage report" depends="build">
     <!-- Run tests and generated dotcover snapshots -->
-    <exec program="${dotcover.exe}">
+    <exec program="${dotcover.exe}" verbose="true" failonerror="true">
       <arg line="cover" />
       <arg line="/targetexecutable=${mstest.exe}" />
       <arg line="/output=${output.dir}\temp" />
@@ -63,7 +63,7 @@
     </exec>
 
     <!-- Generated HTML reports -->
-    <exec program="${dotcover.exe}">
+    <exec program="${dotcover.exe}" verbose="true" failonerror="true">
       <arg line="report" />
       <arg line="/source=${output.dir}\temp" />
       <arg line="/output=${output.dir}\result.html" />
