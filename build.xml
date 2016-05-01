@@ -38,7 +38,7 @@
     </exec>
   </target>
 
-  <target name="coverage" description="Use JebBrain's DotCover to generate coverage report" depends="build">
+  <target name="coverage" description="Use JebBrain's DotCover to generate coverage report">
     <!-- Run tests and generated dotcover snapshots -->
     <exec program="${dotcover.exe}" verbose="true" failonerror="true">
       <arg line="analyse" />

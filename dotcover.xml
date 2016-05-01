@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalyseParams>
+  <TargetExecutable>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe</TargetExecutable>
+  <TargetArguments>/testcontainer:tutorial\bin\tutorial.dll</TargetArguments>
+  <TargetWorkingDir>.</TargetWorkingDir>
+  <Output>output</Output>
+  <ReportType>HTML</ReportType>
+
+  <!-- Allows including not loaded assemblies in the specified scope into coverage results. Ant-style patterns are supported here.
+  <Scope>
+    <ScopeEntry>ProjectFolder/**/*.dll</ScopeEntry>
+    <ScopeEntry>ProjectFolder/**/*.exe</ScopeEntry>
+  </Scope>
+  -->
+  <Filters>
+    <IncludeFilters>
+      <FilterEntry>
+        <ModuleMask>tutorial</ModuleMask>
+        <ClassMask>*</ClassMask>
+        <FunctionMask>*</FunctionMask>
+      </FilterEntry>
+    </IncludeFilters>
+  </Filters>
+  <!-- Coverage filters. It's possible to use asterisks as wildcard symbols.
+    <ExcludeFilters>
+      <FilterEntry>...</FilterEntry>
+      <FilterEntry>...</FilterEntry>
+      <FilterEntry>...</FilterEntry>
+    </ExcludeFilters>
+  -->
+  <!-- Attribute filters. It's possible to use asterisks as wildcard symbols.
+  <AttributeFilters>
+    <AttributeFilterEntry> Attribute class mask </AttributeFilterEntry>
+    <AttributeFilterEntry>System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</AttributeFilterEntry>
+  </AttributeFilters>
+  -->
+</AnalyseParams>

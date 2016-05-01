@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9462607A-9608-474F-A5D0-D9BD7FDCC66A}"
 	ProjectSection(SolutionItems) = preProject
 		build.xml = build.xml
-		C:\Program Files (x86)\Jenkins\jobs\Tutoria Net 1.0.0\workspace\dotcover.xml = C:\Program Files (x86)\Jenkins\jobs\Tutoria Net 1.0.0\workspace\dotcover.xml
+		dotcover.xml = dotcover.xml
 	EndProjectSection
 EndProject
 Global
