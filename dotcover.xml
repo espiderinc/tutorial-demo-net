@@ -3,7 +3,7 @@
   <TargetExecutable>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe</TargetExecutable>
   <TargetArguments>/testcontainer:tutorial\bin\tutorial.dll</TargetArguments>
   <TargetWorkingDir>.</TargetWorkingDir>
-  <Output>output</Output>
+  <Output>output/coverage.html</Output>
   <ReportType>HTML</ReportType>
 
   <!-- Allows including not loaded assemblies in the specified scope into coverage results. Ant-style patterns are supported here.
